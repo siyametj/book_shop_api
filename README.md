@@ -1,83 +1,233 @@
 # 📚 Book Shop API
 
-A RESTful API for managing a book shop, including books inventory, orders, and customer management.
+A simple Book Shop REST API built with **FastAPI**, **SQLAlchemy**, **Pydantic**, and **JWT authentication**.
 
-## Features
-
-- 📖 Book Management (Create, Read, Update, Delete)
-- 🛒 Shopping Cart & Orders
-- 👥 User Management & Authentication
-- 📊 Inventory Tracking
-- 💳 Payment Integration
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js
-- npm or yarn
-- Database (MongoDB/PostgreSQL)
-
-### Installation
-
-```bash
-git clone https://github.com/siyametj/book_shop_api.git
-cd book_shop_api
-npm install
-```
-
-### Configuration
-
-Create a `.env` file in the root directory:
-
-```env
-PORT=3000
-DATABASE_URL=your_database_url
-JWT_SECRET=your_secret_key
-```
-
-### Running the API
-
-```bash
-npm start
-```
-
-The API will be available at `http://localhost:3000`
-
-## API Endpoints
-
-### Books
-- `GET /api/books` - Get all books
-- `GET /api/books/:id` - Get book by ID
-- `POST /api/books` - Create new book
-- `PUT /api/books/:id` - Update book
-- `DELETE /api/books/:id` - Delete book
-
-### Orders
-- `GET /api/orders` - Get all orders
-- `POST /api/orders` - Create new order
-- `GET /api/orders/:id` - Get order by ID
-
-### Users
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `GET /api/users/:id` - Get user profile
-
-## Technologies Used
-
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT
-- **Validation**: Joi
-
-## License
-
-MIT License - See LICENSE file for details
-
-## Author
-
-**siyametj**
+This project was built as a learning project to practice backend development with Python and FastAPI.
 
 ---
 
-Feel free to customize this README with your specific details!
+## 🚀 Features
+
+- 📚 Book CRUD operations
+- 👤 User registration
+- 🔐 User login
+- 🎟️ JWT authentication
+- 🔑 Password hashing with Argon2
+- 📦 Pydantic request and response validation
+- 🗄️ SQLite database
+- 🧩 SQLAlchemy ORM
+- 📖 Automatic API documentation with Swagger UI
+
+---
+
+## 🛠️ Technologies
+
+- Python
+- FastAPI
+- Uvicorn
+- SQLAlchemy
+- Pydantic
+- SQLite
+- PyJWT
+- pwdlib
+- Argon2
+
+---
+
+## 📁 Project Structure
+
+```text
+book_shop/
+│
+├── app/
+│   │
+│   ├── books/
+│   │   ├── models.py
+│   │   ├── router.py
+│   │   ├── schemas.py
+│   │   └── service.py
+│   │
+│   ├── users/
+│   │   ├── models.py
+│   │   ├── router.py
+│   │   ├── schemas.py
+│   │   └── service.py
+│   │
+│   ├── core/
+│   │   ├── deps.py
+│   │   └── security.py
+│   │
+│   ├── database.py
+│   └── main.py
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/siyametj/book_shop_api.git
+```
+
+Move into the project:
+
+```bash
+cd book_shop_api
+```
+
+Create a virtual environment:
+
+```bash
+python3 -m venv venv
+```
+
+Activate it:
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+### Windows
+
+```powershell
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Run the API
+
+Start the FastAPI server:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+The API will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 📖 API Documentation
+
+FastAPI automatically provides interactive API documentation.
+
+### Swagger UI
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### ReDoc
+
+```text
+http://127.0.0.1:8000/redoc
+```
+
+---
+
+## 📚 Book API
+
+The API provides endpoints for managing books.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/books/` | Get all books |
+| GET | `/books/{book_id}` | Get a specific book |
+| POST | `/books/` | Create a book |
+| PUT | `/books/{book_id}` | Update a book |
+| DELETE | `/books/{book_id}` | Delete a book |
+
+---
+
+## 👤 Authentication API
+
+The API also provides user authentication.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Login and receive an access token |
+
+Authentication uses **JWT access tokens**.
+
+---
+
+## 🗄️ Database
+
+The project currently uses **SQLite** as the database.
+
+SQLAlchemy is used as the ORM for database operations.
+
+The database tables are created when the application starts.
+
+---
+
+## 🔐 Authentication
+
+Passwords are hashed before being stored in the database.
+
+The project uses:
+
+- Argon2 for password hashing
+- JWT for authentication tokens
+
+---
+
+## 🎯 Project Goal
+
+The main goal of this project is to learn and practice:
+
+- FastAPI
+- REST API development
+- HTTP methods
+- Path parameters
+- Query parameters
+- Request and response models
+- Pydantic validation
+- Database integration
+- Authentication
+- JWT
+- Password hashing
+- API architecture
+
+---
+
+## 📌 Status
+
+🚧 Learning project
+
+The project is still under development and may receive new features and improvements.
+
+---
+
+## 👨‍💻 Author
+
+**Siyam**
+
+GitHub:
+
+https://github.com/siyametj
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
